@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import '@splidejs/splide/dist/css/splide.min.css'
 import { Splide, SplideSlide } from '@splidejs/react-splide'
+import { Link } from 'react-router-dom'
 
 function Popular() {
 
     const [popular, setPopular] = useState([])
-    const api = '4f4e549fd84f450d896519cb331a7824'
+    const api = '86e1fed4a3e740d88794b8f6ad777e3c'
 
     const getPopular = async() => {
 
@@ -42,9 +43,11 @@ function Popular() {
                     return(
                 <SplideSlide key={recipe.id}>
                     <Card>
+                    <Link to={'/recipe/'+ recipe.id}>
                     <p>{recipe.title}</p><br/>
                     <img src={recipe.image} alt={recipe.title}/>
                     <Gradient/>
+                    </Link>
                     </Card>
                 </SplideSlide>    
                     )
